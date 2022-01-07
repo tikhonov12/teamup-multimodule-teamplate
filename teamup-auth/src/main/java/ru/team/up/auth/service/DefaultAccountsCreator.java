@@ -28,7 +28,7 @@ public class DefaultAccountsCreator {
         this.moderatorRepository = moderatorRepository;
     }
 
-    @Bean("usercr")
+    @Bean
     public void userCreator() {
         userRepository.save(User.builder()
                 .id(1L)
@@ -41,33 +41,33 @@ public class DefaultAccountsCreator {
                 .lastAccountActivity(LocalDateTime.now())
                 .email("user@mail.ru")
                 .age(12)
-                .role(Role.ROLE_USER.name())
+                .role(Role.ROLE_USER)
                 .build());
 
         adminRepository.save(Admin.builder()
                 .id(2L)
-                .name("admin")
-                .lastName("admin")
-                .middleName("admin")
-                .login("admin")
-                .password(BCrypt.hashpw("admin", BCrypt.gensalt(10)))
+                .name("admins")
+                .lastName("admins")
+                .middleName("admins")
+                .login("admins")
+                .password(BCrypt.hashpw("admins", BCrypt.gensalt(10)))
                 .accountCreatedTime(LocalDate.now())
                 .lastAccountActivity(LocalDateTime.now())
-                .email("admin@mail.ru").role(Role.ROLE_ADMIN.name())
+                .email("admins@mail.ru").role(Role.ROLE_ADMIN)
                 .build());
 
 
         moderatorRepository.save(Moderator.builder()
                 .id(3L)
-                .name("moderator")
-                .lastName("moderator")
-                .middleName("moderator")
-                .login("moderator")
+                .name("moderators")
+                .lastName("moderators")
+                .middleName("moderatos")
+                .login("moderators")
                 .password(BCrypt.hashpw("moderator", BCrypt.gensalt(10)))
                 .accountCreatedTime(LocalDate.now())
                 .lastAccountActivity(LocalDateTime.now())
-                .email("moderator@mail.ru")
-                .role(Role.ROLE_MODERATOR.name())
+                .email("moderators@mail.ru")
+                .role(Role.ROLE_MODERATOR)
                 .amountOfCheckedEvents(2L)
                 .amountOfClosedRequests(2L)
                 .amountOfDeletedEvents(3L)

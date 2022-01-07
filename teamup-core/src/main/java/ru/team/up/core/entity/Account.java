@@ -49,8 +49,9 @@ public class Account {
     /**
      * Роль
      */
+    @Enumerated(EnumType.STRING)
     @Column(name = "ROLE")
-    private String role;
+    private Role role;
     /**
      * Электронная почта
      */
